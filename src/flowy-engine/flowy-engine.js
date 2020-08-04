@@ -42,6 +42,7 @@ var flowy = function(canvas, grab, release, snapping, rearrange, spacing_x, spac
       };
     }
     var loaded = false;
+    flowy.eventListeners = [];
     flowy.load = function() {
         if (!loaded)
             loaded = true;
@@ -207,14 +208,19 @@ var flowy = function(canvas, grab, release, snapping, rearrange, spacing_x, spac
             }
         }
         document.addEventListener("mousedown",touchblock, false);
+        flowy.eventListeners.push({type: "mousedown", listener: touchblock})
         document.addEventListener("touchstart",touchblock, false);
+        flowy.eventListeners.push({type: "touchstart", listener: touchblock})
         document.addEventListener("mouseup", touchblock, false);
+        flowy.eventListeners.push({type: "mouseup", listener: touchblock})
 
         flowy.touchDone = function() {
             dragblock = false;
         }
         document.addEventListener('mousedown',flowy.beginDrag);
+        flowy.eventListeners.push({type: "mousedown", listener: flowy.beginDrag})
         document.addEventListener('touchstart',flowy.beginDrag);
+        flowy.eventListeners.push({type: "touchstart", listener: flowy.beginDrag})
         
         flowy.endDrag = function(event) {
 
@@ -342,7 +348,9 @@ var flowy = function(canvas, grab, release, snapping, rearrange, spacing_x, spac
         }
         
         document.addEventListener("mouseup", flowy.endDrag, false);
+        flowy.eventListeners.push({type: "mouseup", listener: flowy.endDrag})
         document.addEventListener("touchend", flowy.endDrag, false);
+        flowy.eventListeners.push({type: "touchend", listener: flowy.endDrag})
         
         function snap(drag, i, blocko) {
             if (!rearrange) {
@@ -593,7 +601,9 @@ var flowy = function(canvas, grab, release, snapping, rearrange, spacing_x, spac
         }
         
         document.addEventListener("mousemove", flowy.moveBlock, false);
+        flowy.eventListeners.push({type: "mousemove", listener: flowy.moveBlock})
         document.addEventListener("touchmove", flowy.moveBlock, false);
+        flowy.eventListeners.push({type: "touchmove", listener: flowy.moveBlock})
 
         function checkOffset() {
             offsetleft = blocks.map(a => a.x);
@@ -725,19 +735,19 @@ var flowy = function(canvas, grab, release, snapping, rearrange, spacing_x, spac
         return rearrange(drag, parent);
     }
     
-    function addEventListenerMulti(type, listener, capture, selector) {
-        var nodes = document.querySelectorAll(selector);
-        for (var i=0; i < nodes.length; i++) {
-            nodes[i].addEventListener(type, listener, capture);
-        }
-    }
+    // function addEventListenerMulti(type, listener, capture, selector) {
+    //     var nodes = document.querySelectorAll(selector);
+    //     for (var i=0; i < nodes.length; i++) {
+    //         nodes[i].addEventListener(type, listener, capture);
+    //     }
+    // }
     
-    function removeEventListenerMulti(type, listener, capture, selector) {
-        var nodes = document.querySelectorAll(selector);
-        for (var i = 0; i < nodes.length; i++) {
-            nodes[i].removeEventListener(type, listener, capture);
-        }
-    }
+    // function removeEventListenerMulti(type, listener, capture, selector) {
+    //     var nodes = document.querySelectorAll(selector);
+    //     for (var i = 0; i < nodes.length; i++) {
+    //         nodes[i].removeEventListener(type, listener, capture);
+    //     }
+    // }
 }
 
 export default flowy;

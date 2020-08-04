@@ -1,9 +1,9 @@
 .dragging {
-  z-index: 111 !important;
+  z-index: 1011 !important;
 }
 .block {
   position: absolute;
-  z-index: 9;
+  z-index: 1009;
 }
 .indicator {
   width: 12px;
@@ -15,7 +15,7 @@
   transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
   transform: scale(1);
   position: absolute;
-  z-index: 2;
+  z-index: 1002;
 }
 .invisible {
   opacity: 0 !important;

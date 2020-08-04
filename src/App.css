@@ -18,7 +18,6 @@ html {
   width: 100%;
   display: table;
   box-sizing: border-box;
-  position: fixed;
   top: 0;
   z-index: 9;
 }
@@ -143,10 +142,10 @@ html {
   background-color: #fff;
   border: 1px solid #e8e8ef;
   box-sizing: border-box;
-  padding-top: 85px;
+  padding-top: 51px;
   padding-left: 20px;
-  height: 100%;
   position: absolute;
+  height: calc(100% - 71px);
   z-index: 2;
   transition: left 0.25s cubic-bezier(0.05, 0.03, 0.35, 1);
 }
