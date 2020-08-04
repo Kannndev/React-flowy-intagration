@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TriggersList from './TriggersList'
 import ActionsList from './ActionsList'
-import LoggersList from './LoggersList'
+import ConditionsList from './ConditionsList'
 
 const TABS = {
   triggers: {
@@ -12,9 +12,9 @@ const TABS = {
     name: 'Actions',
     Component: ActionsList
   },
-  loggers: {
-    name: 'Loggers',
-    Component: LoggersList
+  conditions: {
+    name: 'Conditions',
+    Component: ConditionsList
   }
 }
 

@@ -31,10 +31,10 @@ function App() {
     grab.remove()
     let blockin = drag.querySelector('.blockin')
     blockin.remove()
-    let blockelemtype = parseInt(drag.querySelector('.blockelemtype').value)
+    let blockelemtype = drag.querySelector('.blockelemtype').value;
     console.log(drag.innerHTML);
     switch (blockelemtype) {
-      case 1:
+      case 'whenACandidateMovedToThisStage':
         drag.innerHTML += `
             <div class='blockyleft'>
               <img src=${images['./eye.svg']} draggable="false">
@@ -195,6 +195,7 @@ function App() {
         !event.target.closest('.block').classList.contains('dragging')
       ) {
         tempblock = event.target.closest('.block');
+        console.log(tempblock);
         setRightCard(true);
         tempblock.classList.add('selectedblock');
       }
