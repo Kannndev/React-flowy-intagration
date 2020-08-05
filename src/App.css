@@ -398,11 +398,11 @@ html {
   transform: scaleX(1);
 }
 #canvas {
+  top: 0;
+  bottom: 0;
   position: absolute;
-  width: calc(100% - 361px);
-  height: calc(100% - 71px);
-  top: 71px;
-  left: 361px;
+  width: 100%;
+  left: 0;
   z-index: 0;
   overflow: auto;
 }

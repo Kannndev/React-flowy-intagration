@@ -230,7 +230,7 @@ function Flowy() {
     };
   }, []);
 
-  return <div>
+  return <>
     <Navigation title="Workflow" onSave={() => {
       console.log(flowy.output());
     }} />
@@ -247,8 +247,10 @@ function Flowy() {
           tempblock.classList.remove('selectedblock')
         }}
       /> */}
+      <div style={{"position":"absolute","left":"363px","right":"0","overflow":"auto","bottom":"0","top":"72px"}}>
       <div id="canvas"></div>
-  </div>;
+      </div>
+  </>;
 }
 
 export default Flowy;
