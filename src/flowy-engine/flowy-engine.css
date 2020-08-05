@@ -39,5 +39,5 @@
 }
 .arrowblock svg {
   width: -webkit-fill-available;
-  overflow: visible;
+  overflow: visible !important;
 }
