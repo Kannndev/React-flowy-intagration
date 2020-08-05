@@ -6,12 +6,59 @@ import LeftCard from './LeftCard'
 import RightCard from './RightCard'
 import useEventListener from './hooks/useEventListener';
 import images from '../images';
+import styled from 'styled-components';
 
 let tempblock;
 let tempblock2;
 let aclick = false;
 let noinfo = false;
 
+const StyledFlowy = styled.div`
+.dragging {
+  z-index: 1011 !important;
+}
+.block {
+  position: absolute;
+  z-index: 1009;
+}
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 60px;
+  background-color: #217ce8;
+  margin-top: -5px;
+  opacity: 1;
+  transition: all 0.3s cubic-bezier(0.05, 0.03, 0.35, 1);
+  transform: scale(1);
+  position: absolute;
+  z-index: 1002;
+}
+.invisible {
+  opacity: 0 !important;
+  transform: scale(0);
+}
+.indicator:after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: #217ce8;
+  transform: scale(1.7);
+  opacity: 0.2;
+  border-radius: 60px;
+}
+.arrowblock {
+  position: absolute;
+  width: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.arrowblock svg {
+  width: -webkit-fill-available;
+  overflow: visible !important;
+}
+
+`
 function Flowy() {
   const [leftcard, setLeftCard] = useState(true)
   const [rightcard, setRightCard] = useState(false)
@@ -248,7 +295,7 @@ function Flowy() {
         }}
       /> */}
       <div style={{"position":"absolute","left":"363px","right":"0","overflow":"auto","bottom":"0","top":"72px"}}>
-      <div id="canvas"></div>
+      <StyledFlowy id="canvas"></StyledFlowy>
       </div>
   </>;
 }

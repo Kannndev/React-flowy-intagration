@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const StyledModal = styled(Modal)`
   width: 85% !important;
-  height: 100% !important;
+  height: 95% !important;
   top: 15px !important;
   padding-bottom: 0px !important;
 
@@ -29,7 +29,7 @@ const StyledModal = styled(Modal)`
 
 function SampleModal() {
   
-  return <StyledModal visible>
+  return <StyledModal visible style={{lineHeight: '1'}}>
       <FlowyComponent />
     </StyledModal>
  
