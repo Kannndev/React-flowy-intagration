@@ -230,7 +230,7 @@ function Flowy() {
     };
   }, []);
 
-  return <div>
+  return <>
     <Navigation title="Workflow" onSave={() => {
       console.log(flowy.output());
     }} />
@@ -248,7 +248,7 @@ function Flowy() {
         }}
       /> */}
       <div id="canvas"></div>
-  </div>;
+  </>;
 }
 
 export default Flowy;
